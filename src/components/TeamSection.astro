@@ -19,10 +19,8 @@ const team = [
 ---
 
 <section id="team" class="team">
-  <div class="team-title-wrapper">
-    <h2 class="team-main-title">Our Team</h2>
-  </div>
   <div class="container">
+    <h2 class="team-main-title">Our Team</h2>
 
     <div class="team-grid">
       {team.map((member, index) => (
@@ -55,39 +53,26 @@ const team = [
       ))}
     </div>
   </div>
+  <!-- Divider line -->
+  <div class="section-divider"></div>
 </section>
 
 <style>
   .team {
-    background: var(--slate-900);
-    padding: 0 2rem 4rem;
+    background: var(--cream);
+    padding: 4rem 2rem;
     position: relative;
     overflow: hidden;
-  }
-
-  .team::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 50%, rgba(184, 115, 51, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(184, 115, 51, 0.02) 0%, transparent 40%);
-    pointer-events: none;
-  }
-
-  .team-title-wrapper {
-    background: var(--cream);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    margin-bottom: 2.5rem;
   }
 
   .team-main-title {
     font-family: var(--font-serif);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--slate-900);
     letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 2.5rem;
   }
 
   .team-grid {
@@ -113,7 +98,7 @@ const team = [
   .team-card {
     width: 100%;
     height: 320px;
-    background: var(--slate-800);
+    background: var(--cream);
     border: 3px solid #9ca3af;
     overflow: hidden;
     transition: all 0.4s var(--ease-out-expo);
@@ -164,7 +149,7 @@ const team = [
   .team-info {
     padding: 1rem;
     text-align: center;
-    background: var(--slate-800);
+    background: var(--cream);
     height: 80px;
     display: flex;
     flex-direction: column;
@@ -175,7 +160,7 @@ const team = [
   .team-name {
     font-family: var(--font-serif);
     font-size: 1.125rem;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--slate-900);
     margin-bottom: 0.25rem;
   }
@@ -193,7 +178,7 @@ const team = [
     width: 100%;
     margin-top: 1rem;
     font-size: 0.875rem;
-    color: var(--slate-400);
+    color: var(--slate-600);
     line-height: 1.7;
     text-align: center;
   }
@@ -202,9 +187,20 @@ const team = [
     margin-top: 1.5rem;
   }
 
+  .section-divider {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    height: 1px;
+    background: #d1d5db;
+  }
+
   @media (max-width: 768px) {
     .team {
-      padding: 0 1.5rem 3rem;
+      padding: 3rem 1.5rem;
     }
   }
 </style>
