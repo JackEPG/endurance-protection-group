@@ -1,0 +1,106 @@
+---
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+---
+
+<section id="home" class="hero">
+  <div class="hero-background">
+    <img src={`${baseUrl}austin-skyline-hero.jpg`} alt="Austin, Texas skyline" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Securing the Legacy of Independent P&C Insurance Agencies</h1>
+    <p class="hero-subtitle">Long-term stewards acquiring and operating property & casualty insurance agencies in Texas</p>
+    <a href="#contact" class="hero-cta">Get in Touch</a>
+  </div>
+  <div class="hero-location">
+    <span>Austin, Texas</span>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(26, 26, 46, 0.75) 0%,
+      rgba(26, 26, 46, 0.85) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #ffffff;
+    color: #1a1a2e;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-cta:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+  }
+
+  .hero-location {
+    position: absolute;
+    bottom: 3rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+</style>

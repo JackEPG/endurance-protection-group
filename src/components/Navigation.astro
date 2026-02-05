@@ -1,0 +1,176 @@
+---
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About Us', href: '#about' },
+  { label: 'Team', href: '#team' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header class="nav-header">
+  <nav class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-text">Endurance Protection Group</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+
+    <ul class="nav-links">
+      {navItems.map((item) => (
+        <li>
+          <a href={item.href} class="nav-link">{item.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e5e5;
+    z-index: 1000;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #1a1a2e;
+  }
+
+  .logo-text {
+    letter-spacing: -0.025em;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1a1a2e;
+    position: relative;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #1a1a2e;
+    left: 0;
+  }
+
+  .hamburger::before {
+    top: -7px;
+  }
+
+  .hamburger::after {
+    top: 7px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #4a4a4a;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: #1a1a2e;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1a1a2e;
+    transition: width 0.2s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+      z-index: 1001;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 280px;
+      flex-direction: column;
+      background: white;
+      padding: 5rem 2rem 2rem;
+      gap: 1.5rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+      transform: translateX(0);
+    }
+
+    .nav-link {
+      font-size: 1.125rem;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const links = document.querySelectorAll('.nav-link');
+
+  toggle?.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', (!isExpanded).toString());
+    navLinks?.classList.toggle('active');
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks?.classList.remove('active');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
