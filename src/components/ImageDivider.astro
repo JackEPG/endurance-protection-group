@@ -8,22 +8,43 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 ---
 
 <div class="image-divider">
-  <img src={`${baseUrl}austin-skyline-hero.jpg`} alt={alt} />
-  <div class="divider-overlay"></div>
+  <div class="divider-inner">
+    <img src={`${baseUrl}austin-skyline-hero.jpg`} alt={alt} />
+    <div class="divider-overlay"></div>
+
+    <!-- Elegant quote overlay -->
+    <div class="divider-content">
+      <blockquote class="divider-quote">
+        <p>"Preserving what matters, building what lasts."</p>
+      </blockquote>
+    </div>
+  </div>
 </div>
 
 <style>
   .image-divider {
     position: relative;
-    height: 300px;
-    overflow: hidden;
+    padding: 0 2rem;
   }
 
-  .image-divider img {
+  .divider-inner {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .divider-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 70%;
+    object-position: center 60%;
+    transition: transform 8s ease-out;
+  }
+
+  .image-divider:hover .divider-inner img {
+    transform: scale(1.02);
   }
 
   .divider-overlay {
@@ -31,14 +52,43 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(26, 26, 46, 0.3) 0%,
-      rgba(26, 26, 46, 0.5) 100%
+      rgba(12, 18, 32, 0.4) 0%,
+      rgba(12, 18, 32, 0.6) 100%
     );
+  }
+
+  .divider-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .divider-quote {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .divider-quote p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-style: italic;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    max-width: 600px;
   }
 
   @media (max-width: 768px) {
     .image-divider {
-      height: 200px;
+      padding: 0;
+    }
+
+    .divider-inner {
+      height: 300px;
     }
   }
 </style>

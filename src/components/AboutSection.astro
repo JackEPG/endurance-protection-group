@@ -3,103 +3,195 @@
 
 <section id="about" class="about">
   <div class="container">
-    <h2 class="section-title">About Us</h2>
+    <!-- Section header with elegant typography -->
+    <header class="section-header">
+      <h2 class="section-title">Our Approach</h2>
+    </header>
 
     <div class="about-content">
       <div class="about-text">
         <p class="about-lead">
-          Endurance Protection Group is an operator group dedicated to acquiring and operating independent property & casualty insurance agencies across Texas.
+          Endurance Protection Group is a group of licensed P&C agents focused on carrying forward the legacy of owner-operated insurance agencies. We partner with agency owners who care deeply about their people, their clients, and the businesses they have spent years building.
         </p>
 
-        <p>
-          We believe in the enduring value of relationship-driven insurance businesses. Our approach is rooted in long-term stewardship—we acquire agencies with the intention of operating them for decades, not flipping them for quick returns.
-        </p>
+        <div class="about-prose">
+          <p>
+            We believe human agents are the lifeblood of the industry and will remain essential for years to come. Our role is to ensure agencies and agents are equipped with the tools, systems, and support they need to be more productive, deliver a better customer experience, and remain competitive over time.
+          </p>
 
-        <p>
-          Founded in Austin, Texas, we understand the unique character of Texas communities and the important role that local insurance agencies play in protecting families and businesses. We seek to preserve this legacy while bringing operational excellence and growth capital to the agencies we partner with.
-        </p>
+          <p>
+            Our goal is not a quick transaction or financial engineering. We acquire small agencies and operate them for the long term, maintaining continuity for employees and clients while thoughtfully investing in technology and processes that help agencies adapt to a changing insurance landscape.
+          </p>
+        </div>
       </div>
 
       <div class="about-values">
         <div class="value-item">
-          <h3>Long-Term Focus</h3>
-          <p>We acquire to operate, not to flip. Our commitment extends for generations.</p>
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2v20M2 12h20" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="value-content">
+            <h3>Long-Term Focus</h3>
+            <p>We acquire to operate, not to flip. Our commitment extends for generations, building lasting value.</p>
+          </div>
         </div>
 
         <div class="value-item">
-          <h3>Operator-Led</h3>
-          <p>Hands-on management with deep industry expertise and operational know-how.</p>
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="value-content">
+            <h3>Operator-Led</h3>
+            <p>Hands-on management with deep industry expertise and operational know-how.</p>
+          </div>
         </div>
 
         <div class="value-item">
-          <h3>Texas Roots</h3>
-          <p>Proudly based in Austin, serving communities across the Lone Star State.</p>
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="value-content">
+            <h3>Texas Roots</h3>
+            <p>Proudly based in Austin, serving communities across the Lone Star State.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Divider line -->
+  <div class="section-divider"></div>
 </section>
 
 <style>
   .about {
-    background: #ffffff;
+    background: var(--cream);
+    position: relative;
+    padding: 4rem 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
   }
 
   .section-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #1a1a2e;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--slate-900);
+    letter-spacing: -0.02em;
   }
 
   .about-content {
     display: grid;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
   }
 
   .about-text {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 540px;
   }
 
   .about-lead {
-    font-size: 1.25rem;
-    color: #1a1a2e;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--slate-800);
+    margin-bottom: 2rem;
+    font-weight: 400;
   }
 
-  .about-text p {
-    color: #5a5a6e;
-    margin-bottom: 1.25rem;
+  .about-prose {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
   }
 
-  .about-text p:last-child {
-    margin-bottom: 0;
+  .about-prose p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--slate-600);
   }
 
   .about-values {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 0.5rem;
   }
 
   .value-item {
+    display: flex;
+    gap: 1.5rem;
     padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #e5e5e5;
+    background: white;
+    border: 2px solid #9ca3af;
+    border-radius: 12px;
+    transition: all 0.4s var(--ease-out-expo);
   }
 
-  .value-item h3 {
-    font-size: 1.125rem;
-    color: #1a1a2e;
-    margin-bottom: 0.75rem;
+  .value-item:hover {
+    border-color: #6b7280;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
   }
 
-  .value-item p {
-    color: #5a5a6e;
+  .value-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--copper-500);
+  }
+
+  .value-content h3 {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--slate-900);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .value-content p {
     font-size: 0.9375rem;
+    color: var(--slate-500);
+    line-height: 1.6;
+  }
+
+  .section-divider {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    height: 1px;
+    background: #d1d5db;
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: 3rem 1.5rem;
+    }
+
+    .value-item {
+      padding: 1.5rem;
+    }
   }
 </style>

@@ -16,6 +16,12 @@ const { title, description = "Securing the legacy of independent P&C insurance a
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Fonts: Cormorant Garamond for elegance, Plus Jakarta Sans for modern clarity -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
     <title>{title}</title>
   </head>
   <body>
@@ -24,6 +30,38 @@ const { title, description = "Securing the legacy of independent P&C insurance a
 </html>
 
 <style is:global>
+  :root {
+    /* Deep, sophisticated palette */
+    --slate-950: #0c1220;
+    --slate-900: #131d2e;
+    --slate-800: #1e2d42;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+
+    /* Warm copper accent - Texas warmth */
+    --copper-500: #b87333;
+    --copper-400: #cd8544;
+    --copper-300: #d4a574;
+
+    /* Cream for warmth */
+    --cream: #faf8f5;
+    --cream-dark: #f5f2ed;
+
+    /* Typography */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+    /* Timing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
   *,
   *::before,
   *::after {
@@ -34,13 +72,16 @@ const { title, description = "Securing the legacy of independent P&C insurance a
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
-    color: #1a1a2e;
-    background-color: #ffffff;
+    color: var(--slate-800);
+    background-color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   a {
@@ -55,17 +96,56 @@ const { title, description = "Securing the legacy of independent P&C insurance a
   }
 
   h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2;
-    font-weight: 600;
+    font-family: var(--font-serif);
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--slate-900);
   }
 
   section {
-    padding: 5rem 1.5rem;
+    padding: 7rem 2rem;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
+
+  /* Elegant selection color */
+  ::selection {
+    background: var(--copper-300);
+    color: var(--slate-900);
+  }
+
+  /* Smooth page load */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  body {
+    animation: fadeIn 0.6s var(--ease-out-expo);
+  }
+
+  /* Reveal animations */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal {
+    animation: slideUp 0.8s var(--ease-out-expo) both;
+  }
+
+  .reveal-delay-1 { animation-delay: 0.1s; }
+  .reveal-delay-2 { animation-delay: 0.2s; }
+  .reveal-delay-3 { animation-delay: 0.3s; }
+  .reveal-delay-4 { animation-delay: 0.4s; }
 </style>

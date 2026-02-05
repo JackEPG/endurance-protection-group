@@ -3,27 +3,24 @@
 
 <section id="contact" class="contact">
   <div class="container">
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-subtitle">
-      Interested in discussing a potential partnership? We'd love to hear from you.
-    </p>
+    <header class="section-header">
+      <h2 class="section-title">Let's Connect</h2>
+    </header>
 
     <div class="contact-content">
-      <div class="contact-info">
-        <div class="contact-item">
-          <h3>Email</h3>
-          <a href="mailto:Info@EnduranceProtectionGroup.com">Info@EnduranceProtectionGroup.com</a>
-        </div>
+      <p class="contact-description">
+        Whether you're an agency owner considering your succession options or someone who shares our passion for preserving independent insurance agencies—we welcome the conversation.
+      </p>
 
-        <div class="contact-item">
-          <h3>Location</h3>
-          <p>Austin, Texas</p>
-        </div>
+      <div class="contact-details">
+        <a href="mailto:Info@EnduranceProtectionGroup.com" class="contact-card contact-email">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">Info@EnduranceProtectionGroup.com</span>
+        </a>
 
-        <div class="contact-message">
-          <p>
-            Whether you're an agency owner considering your succession options or someone who shares our passion for preserving independent insurance agencies—we welcome the conversation.
-          </p>
+        <div class="contact-card">
+          <span class="contact-label">Location</span>
+          <span class="contact-value">Austin, Texas</span>
         </div>
       </div>
     </div>
@@ -32,89 +29,165 @@
 
 <footer class="footer">
   <div class="container">
-    <p>&copy; {new Date().getFullYear()} Endurance Protection Group. All rights reserved.</p>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">EPG</span>
+        <span class="footer-name">Endurance Protection Group</span>
+      </div>
+
+      <p class="footer-copyright">
+        &copy; {new Date().getFullYear()} Endurance Protection Group. All rights reserved.
+      </p>
+    </div>
   </div>
 </footer>
 
 <style>
   .contact {
-    background: #ffffff;
+    background: #e8e8e8;
+    padding: 4rem 2rem;
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
 
   .section-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #1a1a2e;
-  }
-
-  .section-subtitle {
-    text-align: center;
-    color: #5a5a6e;
-    font-size: 1.125rem;
-    margin-bottom: 3rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--slate-900);
+    letter-spacing: -0.02em;
   }
 
   .contact-content {
     max-width: 600px;
     margin: 0 auto;
-  }
-
-  .contact-info {
     text-align: center;
   }
 
-  .contact-item {
+  .contact-description {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--slate-700);
     margin-bottom: 2rem;
   }
 
-  .contact-item h3 {
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #8a8a9a;
-    margin-bottom: 0.5rem;
+  .contact-details {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .contact-item a,
-  .contact-item p {
-    font-size: 1.25rem;
-    color: #1a1a2e;
-  }
-
-  .contact-item a {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: color 0.2s ease;
-  }
-
-  .contact-item a:hover {
-    color: #5a5a6e;
-  }
-
-  .contact-message {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e5e5e5;
-  }
-
-  .contact-message p {
-    color: #5a5a6e;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  .footer {
-    background: #1a1a2e;
-    color: #8a8a9a;
-    padding: 2rem 1.5rem;
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 2.5rem;
+    background: #e8e8e8;
+    border: none;
     text-align: center;
+    transition: all 0.4s var(--ease-out-expo);
   }
 
-  .footer p {
+  .contact-email {
+    cursor: pointer;
+  }
+
+  .contact-email:hover {
+    background: #d8d8d8;
+  }
+
+  .contact-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate-500);
+  }
+
+  .contact-value {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--slate-900);
+  }
+
+  .contact-email .contact-value {
+    text-decoration: underline;
+    text-decoration-color: var(--copper-300);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--slate-950);
+    padding: 3rem 2rem;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-serif);
     font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--slate-700);
+  }
+
+  .footer-name {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--slate-500);
+  }
+
+  .footer-copyright {
+    font-size: 0.8125rem;
+    color: var(--slate-600);
+  }
+
+  @media (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .contact {
+      padding: 3rem 1.5rem;
+    }
+
+    .footer {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-name {
+      display: none;
+    }
+
+    .contact-card {
+      min-width: 100%;
+    }
   }
 </style>

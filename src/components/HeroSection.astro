@@ -6,26 +6,40 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
   <div class="hero-background">
     <img src={`${baseUrl}austin-skyline-hero.jpg`} alt="Austin, Texas skyline" />
   </div>
+
+  <!-- Sophisticated gradient overlay -->
   <div class="hero-overlay"></div>
+
+
   <div class="hero-content">
-    <h1 class="hero-title">Securing the Legacy of Independent P&C Insurance Agencies</h1>
-    <p class="hero-subtitle">Long-term stewards acquiring and operating property & casualty insurance agencies in Texas</p>
-    <a href="#contact" class="hero-cta">Get in Touch</a>
+    <h1 class="hero-title reveal">
+      Securing the Legacy of<br />
+      <span class="title-accent">Independent Insurance Agencies</span>
+    </h1>
+    <p class="hero-subtitle reveal reveal-delay-1">
+      Long-term stewards acquiring and operating property & casualty insurance agencies across Texas
+    </p>
+    <div class="hero-cta-wrapper reveal reveal-delay-2">
+      <a href="#contact" class="hero-cta">
+        <span>Start a Conversation</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
   </div>
-  <div class="hero-location">
-    <span>Austin, Texas</span>
-  </div>
+
 </section>
 
 <style>
   .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 8rem 1.5rem 4rem;
+    padding: 6rem 2rem 3rem;
     position: relative;
     overflow: hidden;
   }
@@ -40,67 +54,116 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 40%;
+    transform: scale(1.05);
+    animation: slowZoom 20s ease-out forwards;
+  }
+
+  @keyframes slowZoom {
+    to {
+      transform: scale(1);
+    }
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(26, 26, 46, 0.75) 0%,
-      rgba(26, 26, 46, 0.85) 100%
-    );
+    background:
+      linear-gradient(180deg,
+        rgba(12, 18, 32, 0.7) 0%,
+        rgba(12, 18, 32, 0.5) 40%,
+        rgba(12, 18, 32, 0.8) 100%
+      );
     z-index: 1;
   }
 
   .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
   .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.025em;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    color: white;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.02em;
     line-height: 1.1;
   }
 
+  .title-accent {
+    font-style: italic;
+    color: white;
+  }
+
   .hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 2.5rem;
-    max-width: 600px;
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: white;
+    margin-bottom: 3rem;
+    max-width: 540px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .hero-cta-wrapper {
+    display: inline-block;
   }
 
   .hero-cta {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: #ffffff;
-    color: #1a1a2e;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: 4px;
-    transition: background 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: white;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: white;
+    transform: translateY(100%);
+    transition: transform 0.4s var(--ease-out-expo);
+    z-index: -1;
   }
 
   .hero-cta:hover {
-    background: #f0f0f0;
-    transform: translateY(-2px);
+    color: var(--slate-900);
+    border-color: white;
   }
 
-  .hero-location {
-    position: absolute;
-    bottom: 3rem;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    z-index: 2;
+  .hero-cta:hover::before {
+    transform: translateY(0);
+  }
+
+  .hero-cta svg {
+    transition: transform 0.4s var(--ease-out-expo);
+  }
+
+  .hero-cta:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 7rem 1.5rem 4rem;
+    }
+
+    .hero-title br {
+      display: none;
+    }
+
   }
 </style>
