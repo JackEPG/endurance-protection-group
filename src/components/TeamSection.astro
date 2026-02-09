@@ -8,12 +8,6 @@ const team = [
     photo: "Trent_Jack_223-0434-Retouched.jpg",
     bio: "Jack is one of the co-founders of EPG, combining his years of experience serving leading insurers at McKinsey with his prior experience founding and running a small services business. He knows the challenges first hand of operating a small business and being successful in the insurance industry.",
     bio2: "A native Texan, Jack cares deeply about the social good that insurance provides to local Texas communities."
-  },
-  {
-    name: "Other EPG Members",
-    role: "Co-Founders & Advisors",
-    photo: null,
-    bio: "EPG's other co-founders bring decades of insurance and business operations experience. Similarly, EPG is advised by former operators, investors, and leaders in the insurance industry."
   }
 ];
 ---
@@ -21,6 +15,12 @@ const team = [
 <section id="team" class="team">
   <div class="container">
     <h2 class="team-main-title">Our Team</h2>
+
+    <p class="team-description">
+      The EPG founding team has decades worth of insurance and business operations experience, having served some of the largest carriers and distributors in the world as consultants. Similarly, EPG is advised by former operators and insurance industry leaders.
+    </p>
+
+    <h3 class="team-subtitle">Meet one of our co-founders</h3>
 
     <div class="team-grid">
       {team.map((member, index) => (
@@ -72,21 +72,38 @@ const team = [
     color: var(--slate-900);
     letter-spacing: -0.02em;
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .team-description {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--slate-700);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .team-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--slate-900);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-decoration: underline;
+    text-decoration-color: var(--copper-400);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
   }
 
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(2, 280px);
+    grid-template-columns: 280px;
     gap: 3rem;
     justify-content: center;
     align-items: stretch;
-  }
-
-  @media (max-width: 620px) {
-    .team-grid {
-      grid-template-columns: 280px;
-    }
   }
 
   .team-column {
@@ -128,22 +145,6 @@ const team = [
 
   .team-card:hover .team-photo img {
     transform: scale(1.03);
-  }
-
-  .photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--slate-700) 0%, var(--slate-600) 100%);
-    padding: 2rem;
-  }
-
-  .placeholder-avatar {
-    width: 80%;
-    height: 80%;
-    opacity: 0.8;
   }
 
   .team-info {
